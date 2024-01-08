@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Site</title>
+</head>
+
+<body>
+    <h2>Random Numbers:</h2>
+    <p>Dice 1: <span id="dice1"></span></p>
+    <p>Dice 2: <span id="dice2"></span></p>
+
+    <script>
+        // Fetch the random number for Dice 1
+        fetch('/randomGenerator')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('dice1').textContent = data.randomNumber1;
+            });
+
+        // Fetch the random number for Dice 2
+        fetch('/randomGenerator')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('dice2').textContent = data.randomNumber2;
+            });
+    </script>
+</body>
+
+</html>
